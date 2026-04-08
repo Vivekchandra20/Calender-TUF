@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #f7f2e8;
+  --foreground: #2a2018;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-source-serif);
+  --font-display: var(--font-baskerville);
+}
+
+.dark {
+  --background: #1b140f;
+  --foreground: #f8e6cf;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+@keyframes calendarPageTurn {
+  0% {
+    opacity: 0;
+    transform: translateX(36px) rotateZ(1.5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) rotateZ(0deg);
+  }
+}
+
+.animate-calendar-page {
+  animation: calendarPageTurn 420ms ease;
+}
